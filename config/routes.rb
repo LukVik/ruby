@@ -3,5 +3,13 @@ Rails.application.routes.draw do
     get 'pages/home'
   end
 
-  root 'static_pages/pages#home'
+  # Root of site:
+  root 'posts#index'
+
+  # Regular routes:
+  get '/about', to: "pages#about"
+
+  # Resources routes (maps HTTP verbs to controller actions:
+  resources :posts
+
 end
